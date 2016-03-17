@@ -27,7 +27,7 @@ module ActiveRecord::Import::PostgreSQLAdapter
 
   def post_sql_statements( table_name, options ) # :nodoc:
     unless options[:primary_key].blank?
-      super(table_name, options) << ("RETURNING #{options[:primary_key]}")
+      super(table_name, options) << ("RETURNING \"#{options[:primary_key]}\"")
     else
       super(table_name, options)
     end
